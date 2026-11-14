@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李靜柔｜個人履歷</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== 左側固定側欄：header + nav ===== -->
+    <!-- [特效] 點選導覽列時平滑捲動到對應區塊 — 使用 scroll-behavior: smooth -->
+    <!-- [特效] 滑鼠移到導覽按鈕時變成深藍底並微微上移 — 使用 transition + transform: translateY -->
+    <header class="sidebar">
+        <a href="#about" class="logo">李靜柔</a>
+        <nav class="side-nav">
+            <ul>
+                <li>
+                    <a href="#about">
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+                        </span>
+                        <span class="nav-text">關於我</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills">
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 6.9L12 17.8 5.8 21.1l1.3-6.9L2 9.4l7-.9z"/></svg>
+                        </span>
+                        <span class="nav-text">技能</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#education">
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.9V17h2V9zM5 13.2v4L12 21l7-3.8v-4L12 17z"/></svg>
+                        </span>
+                        <span class="nav-text">學歷</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#experience">
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 3h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3V5a2 2 0 0 1 2-2zm0 4h6V5H9z"/></svg>
+                        </span>
+                        <span class="nav-text">經歷</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7L4 7.5V8l8 5 8-5v-.5z"/></svg>
+                        </span>
+                        <span class="nav-text">聯絡</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+
+        <!-- ===== 1. 個人基本資訊 ===== -->
+        <!-- [特效] 頁面載入時個人資訊卡片由下往上淡入 — 使用 @keyframes fade-up -->
+        <section id="about" class="hero-card">
+            <div class="hero-photo">
+                <img src="image/profile1.jpg" alt="個人照片">
+            </div>
+            <div class="hero-text">
+                <p class="hello"></p>
+                <h1>李靜柔</h1>
+                <p class="sub-title">中原大學資訊管理學系｜二年級</p>
+                <blockquote class="slogan">「走出舒適圈，在每一次挑戰中，長成更好的自己。」</blockquote>
+                <p class="intro">
+                    對我而言，學習不該只停留在理論，而是解決問題的工具。我平常除了喜歡運動、嘗試新事物，也樂於把腦中的想法付諸行動——不管是接觸不熟悉的技術工具，還是挑戰不同性質的活動，雖然每次跨出去都會緊張，但回頭看總能收穫滿滿的成就感。
+                </p>
+                <ul class="info-list">
+                    <li><span>興趣</span>介面設計、教育、運動</li>
+                    <li><span>語言</span>中文、英文</li>
+                    <li><span>特質</span>團隊合作・耐心溝通・勇於挑戰</li>
+                    <li><span>電話</span>0966-466-110</li>
+                </ul>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">聯絡我</a>
+                    <a href="#experience" class="btn btn-outline">看經歷</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2. 技能 + 學歷（縮小並排） ===== -->
+        <div class="mini-row">
+
+            <section id="skills" class="mini-card">
+                <div class="section-title small">
+                    <p class="en">SKILLS</p>
+                    <h2>技能</h2>
+                </div>
+                <div class="skill-grid">
+                    <!-- 圓環百分比由 style="--target: 數字" 控制 -->
+                    <!-- [特效] 圓環從 0% 慢慢填滿到目標百分比 — 使用 @property + @keyframes ring-fill
+                         參考來源：MDN @property https://developer.mozilla.org/en-US/docs/Web/CSS/@property -->
+                    <!-- [特效] 滑鼠移到技能圓環時放大 — 使用 transition + transform: scale -->
+                    <div class="skill-item">
+                        <div class="ring" style="--target: 80;"><span>80%</span></div>
+                        <h3>活動企劃帶領</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="ring" style="--target: 85;"><span>85%</span></div>
+                        <h3>跨領域溝通協作</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="ring" style="--target: 85;"><span>85%</span></div>
+                        <h3>專案企劃與執行</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="ring" style="--target: 80;"><span>80%</span></div>
+                        <h3>AI 工具整合應用</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="ring" style="--target: 75;"><span>75%</span></div>
+                        <h3>資料整理與分析</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="ring" style="--target: 70;"><span>70%</span></div>
+                        <h3>HTML／CSS 網頁設計</h3>
+                    </div>   
+                </div>
+            </section>
+
+            <section id="education" class="mini-card">
+                <div class="section-title small">
+                    <p class="en">EDUCATION</p>
+                    <h2>學歷</h2>
+                </div>
+                <div class="timeline-item">
+                    <p class="year">2025 – 至今</p>
+                    <h3>中原大學</h3>
+                    <p>資訊管理學系</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="year">2022–2025</p>
+                    <h3>中壢高商</h3>
+                    <p>普通科</p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ===== 3. 個人經歷（主要區塊，卡片可展開） ===== -->
+        <!-- [特效] 滑鼠移到經歷卡片時浮起並出現陰影 — 使用 transition + transform + box-shadow -->
+        <!-- [特效] 滑鼠移到活動照片時照片放大 — 使用 transition + transform: scale -->
+        <!-- [特效] 點擊按鈕後卡片往下展開細節 — 使用 checkbox + :checked + grid-template-rows 的 transition
+             參考來源：CSS-Tricks「CSS Grid Can Do Auto Height Transitions」
+             https://css-tricks.com/css-grid-can-do-auto-height-transitions/ -->
+        <section id="experience">
+            <div class="section-title">
+                <p class="en">EXPERIENCE</p>
+                <h2>個人經歷</h2>
+            </div>
+            <div class="exp-grid">
+
+                <!-- 經歷 1 -->
+                <article class="exp-card">
+                    <div class="exp-photos">
+                        <a href="image/beach-1.jpg" target="_blank"><img src="image/beach-1.jpg" alt="新屋海岸淨灘活動合照"></a>
+                        <a href="image/beach-2.jpg" target="_blank"><img src="image/beach-2.jpg" alt="淨灘撿拾垃圾"></a>
+                    </div>
+                    <div class="exp-body">
+                        <span class="tag">服務學習</span>
+                        <span class="tag">網頁製作</span>
+                        <h3>淨灘與數位地圖平台製作</h3>
+                        <input type="checkbox" id="exp-beach" class="exp-toggle">
+                        <div class="exp-detail">
+                            <div class="exp-detail-inner">
+                                <p class="exp-desc">
+                                    在管理學服務學習專案中，我發現網路上淨灘資訊繁雜，所以決定縮小範圍並動手實踐。我深入桃園新屋海岸參與實地清理，並嘗試由 AI 工具輔助，將資料進行整理並建置互動式網頁。
+                                </p>
+                                <h4>我的具體分工與收穫</h4>
+                                <ul class="point-list">
+                                    <li>前往新屋蚵間海岸實地淨灘，記錄垃圾種類與分布情形。</li>
+                                    <li>蒐集並篩選網路上的淨灘資訊，搭配 AI 工具整理成互動式地圖網頁。</li>
+                                    <li>學會發現問題、實地行動再將所學融入生活，解決問題。</li>
+                                </ul>
+                                <h4>成果與佐證</h4>
+                                <ul class="proof-list">
+                                    <li>
+                                        淨灘數位地圖網站：<a href="https://courageous-tapioca-696ce6.netlify.app/" target="_blank" class="text-link">https://courageous-tapioca-696ce6.netlify.app/</a>
+                                        <img src="image/bench-3.png" alt="成果說明" class="proof-img">
+                                    </li>
+                                    <li>活動合照：<a href="image/beach-1.jpg" target="_blank" class="text-link">查看大圖</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <label for="exp-beach" class="exp-btn"></label>
+                    </div>
+                </article>
+
+                <!-- 經歷 2 -->
+                <article class="exp-card">
+                    <div class="exp-photos">
+                        <a href="image/sdg-2.jpg" target="_blank"><img src="image/sdg-2.jpg" alt="英文簡報競賽上台報告"></a>
+                        <a href="image/sdg-1.jpg" target="_blank"><img src="image/sdg-1.jpg" alt="SDG 競賽隊員合照"></a>
+                    </div>
+                    <div class="exp-body">
+                        <span class="tag">競賽</span>
+                        <h3>校內 SDG 英文簡報競賽挑戰</h3>
+                        <input type="checkbox" id="exp-sdg" class="exp-toggle">
+                        <div class="exp-detail">
+                            <div class="exp-detail-inner">
+                                <p class="exp-desc">
+                                    為了跨出舒適圈並提升外語表達能力，我主動報名參加校內舉辦的 SDG 永續發展目標英文競賽。雖然最終遺憾未獲獎，但從資料蒐集、英文講稿撰寫到台上口語簡報的過程中，大幅增強了我的外語邏輯表達自信與面對挫折時的心理韌性。
+                                </p>
+                                <h4>我的具體分工與收穫</h4>
+                                <ul class="point-list">
+                                    <li>以「How Can Students Help End Hunger?」為題，蒐集糧食浪費相關資料。</li>
+                                    <li>撰寫英文講稿並反覆練習口說與時間控制，並獨自完成1分鐘全英文簡報發表。</li>
+                                    <li>學會面對挫折，從評審回饋中找出可以改進的地方。</li>
+                                </ul>
+                                <h4>成果與佐證</h4>
+                                <ul class="proof-list">
+                                    <li>SDG 競賽成果展示：<a href="image/sdg-2.jpg" target="_blank" class="text-link">查看大圖</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <label for="exp-sdg" class="exp-btn"></label>
+                    </div>
+                </article>
+
+                <!-- 經歷 3 -->
+                <article class="exp-card">
+                    <div class="exp-photos">
+                        <a href="image/ball-1.jpg" target="_blank"><img src="image/ball-1.jpg" alt="排球系際盃冠軍錦旗"></a>
+                        <a href="image/ball-3.jpg" target="_blank"><img src="image/ball-3.jpg" alt="籃球新生盃合照"></a>
+                    </div>
+                    <div class="exp-body">
+                        <span class="tag">運動競賽</span>
+                        <h3>校內籃球新生盃與排球系際盃雙冠</h3>
+                        <input type="checkbox" id="exp-ball" class="exp-toggle">
+                        <div class="exp-detail">
+                            <div class="exp-detail-inner">
+                                <p class="exp-desc">
+                                    在與隊友訓練及比賽的過程中，我學習到團隊溝通、戰術配合與彼此信任的重要性，也提升了團隊合作與協調能力。
+                                </p>
+                                <h4>我的具體分工與收穫</h4>
+                                <ul class="point-list">
+                                    <li>籃球新生盃：和剛認識的同學從零開始磨合，配合練習戰術。</li>
+                                    <li>排球系際盃(舉球)：參與賽前討論與練習，比賽中與隊友互相補位。</li>
+                                    <li>兩項賽事都拿下冠軍，學會在壓力下保持冷靜、信任隊友。</li>
+                                </ul>
+                                <h4>成果與佐證</h4>
+                                <ul class="proof-list">
+                                    <li>排球系際盃冠軍錦旗：<a href="image/ball-1.jpg" target="_blank" class="text-link">查看大圖</a></li>
+                                    <li>排球隊合照：<a href="image/ball-2.jpg" target="_blank" class="text-link">查看大圖</a></li>
+                                    <li>籃球新生盃合照：<a href="image/ball-3.jpg" target="_blank" class="text-link">查看大圖</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <label for="exp-ball" class="exp-btn"></label>
+                    </div>
+                </article>
+
+                <!-- 經歷 4 -->
+                <article class="exp-card">
+                    <div class="exp-photos">
+                        <a href="image/camp-1.jpg" target="_blank"><img src="image/camp-1.jpg" alt="營隊與小朋友合照"></a>
+                        <a href="image/camp-2.jpg" target="_blank"><img src="image/camp-2.jpg" alt="帶領營隊活動"></a>
+                    </div>
+                    <div class="exp-body">
+                        <span class="tag">志工服務</span>
+                        <h3>暑期國小營隊帶領</h3>
+                        <input type="checkbox" id="exp-camp" class="exp-toggle">
+                        <div class="exp-detail">
+                            <div class="exp-detail-inner">
+                                <p class="exp-desc">
+                                    我非常喜歡與小朋友互動，每年定期參與社區志工服務與暑期國小營隊的帶領，累積了豐富的突發狀況應變與情緒引導經驗。在營隊籌備與執行過程中，我學會了如何設計寓教於樂的團康內容、危機處理，並在過程中培養出高度的耐心與溝通能力。
+                                </p>
+                                <h4>我的具體分工與收穫</h4>
+                                <ul class="point-list">
+                                    <li>規劃營隊的破冰遊戲與團康活動，讓小朋友快速熟悉彼此。</li>
+                                    <li>擔任小隊長，協助隊輔與大會的即時溝通、照顧並引導小朋友順利參與每一個關卡。</li>
+                                    <li>遇到突發狀況時，協助處理並提供支援。</li>
+                                </ul>
+                                <h4>成果與佐證</h4>
+                                <ul class="proof-list">
+                                    <li>營隊合照：<a href="image/camp-1.jpg" target="_blank" class="text-link">查看大圖</a></li>
+                                    <li>活動帶領：<a href="image/camp-2.jpg" target="_blank" class="text-link">查看大圖</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <label for="exp-camp" class="exp-btn"></label>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===== 4. 聯絡資訊 ===== -->
+        <!-- [特效] 滑鼠移到聯絡圓形按鈕時旋轉並放大 — 使用 transition + transform: rotate(12deg) scale(1.1) -->
+        <section id="contact" class="contact-bar">
+            <div class="contact-text">
+                <h2>一起聊聊吧！</h2>
+                <p>歡迎與我聯繫，期待和你交流合作的機會。</p>
+            </div>
+            <ul class="contact-list">
+                <li>
+                    <!-- 點擊後開啟寄信程式 -->
+                    <a href="mailto:eve0933969282@gmail.com" target="_blank">
+                        <span class="circle">
+                            <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7L4 7.5V8l8 5 8-5v-.5z"/></svg>
+                        </span>
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/j.rou___/" target="_blank">
+                        <span class="circle">
+                            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm5.5-3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+                        </span>
+                        Instagram
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tel:0912345678">
+                    <span class="circle">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+                    </span>
+                    0966-466-110
+</a>
+                </li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 李靜柔｜ <a href="#about">回到頂端 ↑</a></p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
